@@ -32,8 +32,8 @@ export const empresa = {
   publicoAlvo:
     "Empresas tecnológicas e corporações em crescimento que necessitam de integração de sistemas avançados e conectividade para otimizar fluxos de trabalho e acelerar a sua transformação digital.",
   contato: {
-    email: "Nexustechnologies@gmail.com",
-    telefone: "(11)99887-7665",
+    email: "nexustechnologies@gmail.com",
+    telefone: "(11) 99887-7665",
     endereco: {
       logradouro: "Rua Oscar Freire, 1420",
       complemento: "Bloco B, Apto 112",
@@ -46,21 +46,21 @@ export const empresa = {
     {
       nome: "Ellen Ramos",
       cargo: "Diretora-Geral / CEO",
-      foto: "/images/wanderson.jpg",
+      foto: "/images/EllenRamos.png",
       alt: "Foto de Ellen Ramos",
       descricao: "Responsável por liderar a empresa, tomar decisões estratégicas e garantir o crescimento e desenvolvimento da Nexus Technologies."
     },
     {
       nome: "Maria Da Consolação",
       cargo: "Gerente Administrativa e Financeira",
-      foto: "/images/sheldon.jpg",
+      foto: "/images/MariaDaConsolacao.png",
       alt: "Foto de Maria Da Consolação",
       descricao: "Responsável por organizar as atividades administrativas, controlar as finanças e garantir o bom funcionamento da empresa."
     },
     {
-      nome: "Jude William Bellingham",
+      nome: "Jude Bellingham",
       cargo: "Gerente Comercial e Marketing",
-      foto: "/images/amy.jpg",
+      foto: "/images/JudeWilliamBellingham.png",
       alt: "Foto de Jude William Bellingham",
       descricao: "Responsável por desenvolver estratégias de divulgação, fortalecer a imagem da empresa e atrair novos clientes e parceiros."
     }
