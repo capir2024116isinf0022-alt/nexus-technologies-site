@@ -63,6 +63,13 @@ export const empresa = {
       foto: "/images/JudeWilliamBellingham.png",
       alt: "Foto de Jude William Bellingham",
       descricao: "Responsável por desenvolver estratégias de divulgação, fortalecer a imagem da empresa e atrair novos clientes e parceiros."
-    }
+    },
+    {
+      nome: "Rafael Lange",
+      cargo: "Gerente de Tecnologia",
+      foto: "/images/RafaelLange.png",
+      alt: "Foto de Rafael Lange",
+      descricao: "Responsável por liderar a área técnica, definir a arquitetura dos sistemas, impulsionar a inovação e garantir a qualidade e segurança de soluções."
+},
   ]
 };
