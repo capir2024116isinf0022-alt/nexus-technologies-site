@@ -1,83 +1,197 @@
-/* src/styles/global.css */
+
+/* ==========================================
+   NEXUS TECHNOLOGIES
+   GLOBAL CSS
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Michroma&display=swap');
+
 :root {
-  /* Paleta de Cores baseada no Logo */
-  --cor-primaria: #0d1520; /* Quase preto */
-  --cor-secundaria: #0058ec; /* Azul escuro do degradê (links e botões) */
-  --cor-destaque: #008ff7; /* Azul claro do degradê (decorativo) */
-  --cor-fundo: #ffffff;
-  --cor-fundo-alt: #f8fafc;
-  --cor-texto: #334155;
-  --cor-texto-secundario: #64748b;
+  /* Paleta de cores baseada na logo */
+  --cor-primaria: #0a0b16;
+  --cor-secundaria: #0058ec;
+  --cor-destaque: #008ff7;
+  --cor-fundo: #0a0b16;
+  --cor-fundo-alt: #111329;
+
+  --cor-texto: #eae8f2;
+  --cor-texto-secundario: #a5a5bd;
   --cor-texto-invertido: #ffffff;
   --cor-texto-invertido-suave: #cbd5e1;
-  --cor-borda: #e2e8f0;
-  
-  /* Variável para o Hero */
-  --cor-hero-fim: #00224d;
 
-  /* Degradês Globais */
+  --cor-borda: rgba(155, 111, 209, 0.20);
+
+  /* Dourado */
+  --cor-dourada: #d9a441;
+  --cor-dourada-clara: #e5c47b;
+
+  /* Hero */
+  --cor-hero-fim: #171334;
+
+  /* Fontes */
+  --fonte-titulos: 'Michroma', sans-serif;
+  --fonte-textos: 'Chakra Petch', sans-serif;
+
+  /* Degradês */
   --degrade-marca: linear-gradient(
     90deg,
-    var(--cor-secundaria),
-    var(--cor-destaque)
+    #0058ec,
+    #008ff7
   );
+
   --degrade-hero: linear-gradient(
     135deg,
     var(--cor-primaria),
     var(--cor-hero-fim)
   );
 
-  /* Variáveis Estruturais */
+  /* Variáveis estruturais */
   --borda-raio: 8px;
-  --sombra-cartao: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --sombra-cartao-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --sombra-cartao: 0 4px 15px rgba(0, 0, 0, 0.25);
+  --sombra-cartao-hover: 0 10px 25px rgba(155, 111, 209, 0.18);
   --espacamento-secao: 4rem;
 }
 
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+/* ==========================================
+   BODY E FUNDO
+   ========================================== */
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: var(--fonte-textos);
+
+  background:
+    radial-gradient(
+      ellipse at 20% 0%,
+      #171a38 0%,
+      #0a0b16 55%
+    );
+
   background-color: var(--cor-fundo);
+
   color: var(--cor-texto);
   line-height: 1.6;
+
   display: flex;
   flex-direction: column;
+
   min-height: 100vh;
+  overflow-x: hidden;
+
+  position: relative;
 }
+
+/* ==========================================
+   MAIN E CÉU ESTRELADO
+   ========================================== */
 
 main {
   flex: 1;
+
+  position: relative;
+
+  background:
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(65, 45, 115, 0.15),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 15% 80%,
+      rgba(45, 55, 115, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      #0b0c1c,
+      #11112a,
+      #0a0b16
+    );
 }
 
-h1, h2, h3 {
-  color: var(--cor-primaria);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+/* Estrelas espalhadas pelo fundo */
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(1px 1px at 8% 12%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 23% 35%, #ffffff 50%, transparent),
+    radial-gradient(1.5px 1.5px at 41% 18%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 67% 9%, #ffffff 50%, transparent),
+    radial-gradient(1.5px 1.5px at 85% 28%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 92% 65%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 14% 72%, #ffffff 50%, transparent),
+    radial-gradient(1.5px 1.5px at 52% 57%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 76% 84%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 34% 91%, #ffffff 50%, transparent),
+    radial-gradient(1px 1px at 5% 48%, #ffffff 50%, transparent),
+    radial-gradient(1.5px 1.5px at 59% 38%, #ffffff 50%, transparent);
+
+  opacity: 0.5;
 }
 
-p {
-  margin-bottom: 1rem;
+/* Mantém o conteúdo acima das estrelas */
+main > * {
+  position: relative;
+  z-index: 1;
 }
 
-a {
-  color: var(--cor-secundaria);
+/* ==========================================
+   NAVEGAÇÃO ORIGINAL — APENAS FIXADA
+   ========================================== */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  /* Preserva a estrutura visual original */
+  background: rgba(10, 11, 22, 0.90);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Links da navegação */
+nav a {
+  color: #b7bcd8;
+  font-family: var(--fonte-textos);
+
+  transition: color 0.25s ease,
+              background 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--cor-dourada);
+  background-color: rgba(217, 164, 65, 0.10);
+
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+/* ==========================================
+   CONTAINERS
+   ========================================== */
 
 .container {
   width: 100%;
   max-width: 960px;
+
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -87,21 +201,247 @@ a:hover {
 }
 
 .secao-alt {
-  background-color: var(--cor-fundo-alt);
+  background-color: rgba(17, 19, 41, 0.75);
 }
+
+/* ==========================================
+   TÍTULOS
+   ========================================== */
+
+h1,
+h2,
+h3 {
+  color: var(--cor-texto);
+
+  font-family: var(--fonte-titulos);
+
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  color: #d8c9f0;
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  color: #c9b6e8;
+}
+
+/* ==========================================
+   PARÁGRAFOS
+   ========================================== */
+
+p {
+  font-family: var(--fonte-textos);
+  color: var(--cor-texto-secundario);
+
+  margin-bottom: 1rem;
+}
+
+/* ==========================================
+   LINKS
+   ========================================== */
+
+a {
+  color: var(--cor-destaque);
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--cor-dourada);
+  text-decoration: underline;
+}
+
+/* ==========================================
+   BOTÕES
+   ========================================== */
 
 .btn {
   display: inline-block;
-  background-color: var(--cor-secundaria);
+
+  background: var(--degrade-marca);
+
   color: var(--cor-texto-invertido);
+
   padding: 0.75rem 1.5rem;
+
   border-radius: var(--borda-raio);
-  font-weight: 600;
+
+  font-family: var(--fonte-textos);
+  font-weight: 700;
+
   text-align: center;
-  transition: background-color 0.2s ease;
+
+  border: 1px solid transparent;
+
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: var(--cor-primaria);
+  background: linear-gradient(
+    100deg,
+    #0058ec,
+    #8252bd,
+    #d9a441
+  );
+
+  color: #ffffff;
+
+  border-color: rgba(217, 164, 65, 0.65);
+
+  box-shadow:
+    0 0 15px rgba(217, 164, 65, 0.18),
+    0 8px 20px rgba(155, 111, 209, 0.18);
+
+  transform: translateY(-3px);
+
   text-decoration: none;
 }
+
+/* ==========================================
+   CARTÕES
+   ========================================== */
+
+.card,
+.cartao {
+  background: #12142a;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 14px;
+
+  box-shadow: var(--sombra-cartao);
+
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.cartao:hover {
+  background: #171a35;
+
+  border-color: rgba(217, 164, 65, 0.75);
+
+  box-shadow:
+    0 0 12px rgba(217, 164, 65, 0.08),
+    0 8px 25px rgba(155, 111, 209, 0.15);
+
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+  background: #080916;
+
+  color: #a5a5bd;
+
+  border-top: 1px solid rgba(155, 111, 209, 0.22);
+
+  padding: 28px 20px;
+
+  margin-top: auto;
+
+  text-align: center;
+
+  font-family: var(--fonte-textos);
+  font-size: 0.8rem;
+}
+
+footer p,
+footer span {
+  color: #a5a5bd;
+}
+
+footer a {
+  color: #b7bcd8;
+}
+
+footer a:hover {
+  color: var(--cor-dourada);
+}
+
+/* ==========================================
+   CLASSES DECORATIVAS
+   ========================================== */
+
+.destaque-dourado {
+  color: var(--cor-dourada);
+}
+
+.borda-dourada {
+  border: 1px solid rgba(217, 164, 65, 0.55);
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  nav a {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .secao {
+    padding: 3rem 0;
+  }
+
+  footer {
+    padding: 24px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* ==========================================
+   CABEÇALHO COMPLETO FIXO + GLASS
+   ========================================== */
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(10, 11, 22, 0.78);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(155, 111, 209, 0.25);
+
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+}
+

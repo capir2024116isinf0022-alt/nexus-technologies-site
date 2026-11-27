@@ -28,25 +28,29 @@ import { empresa } from '../data/empresa.js';
 
 <style>
 	.hero {
-		background: var(--degrade-hero);
-		color: var(--cor-texto-invertido);
-		padding: 6rem 0;
-	}
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--degrade-hero);
+    color: var(--cor-texto-invertido);
+    padding: 9rem 0;
+}
 
-	.hero h1 {
-		color: var(--cor-texto-invertido);
-		font-size: 3rem;
-		margin-bottom: 1.5rem;
-		line-height: 1.1;
-		max-width: 800px;
-	}
-
-	.hero-descricao {
-		font-size: 1.25rem;
-		max-width: 700px;
-		margin-bottom: 2rem;
-		color: var(--cor-texto-invertido-suave);
-	}
+/* Poucas estrelas no fundo */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 15% 25%, #fff 50%, transparent 100%),
+        radial-gradient(2px 2px at 75% 20%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 45% 75%, #fff 50%, transparent 100%),
+        radial-gradient(2px 2px at 90% 65%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 30% 85%, #fff 50%, transparent 100%);
+    opacity: 0.7;
+}
 
 	.publico h2 {
 		margin-bottom: 2rem;
@@ -57,4 +61,16 @@ import { empresa } from '../data/empresa.js';
 		font-size: 1.125rem;
 		color: var(--cor-texto-secundario);
 	}
+	.publico {
+    background: linear-gradient(135deg, #220558, #1e0741);
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
 </style>
